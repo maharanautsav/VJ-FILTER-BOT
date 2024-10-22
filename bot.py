@@ -92,3 +92,11 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         logging.info('Service Stopped Bye 👋')
 
+import asyncio
+from pyrogram.errors import FloodWait
+
+try:
+    # Your code that might cause the FloodWait error
+except FloodWait as e:
+    print(f"Waiting for {e.value} seconds due to FloodWait")
+    await asyncio.sleep(e.value)
